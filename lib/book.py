@@ -1,6 +1,26 @@
 #!/usr/bin/env python3
 
 class Book:
-    pass
-    
+    def __init__(self, title, page_count) -> None:
+        self.title = title
+        self._page_count = None
+
+        if not isinstance(page_count, int):
+            print("page_count must be an integer.", end="")
+        else:
+            self._page_count = page_count
+
+    @property
+    def page_count(self):
+        return self._page_count
+
+    @page_count.setter
+    def page_count(self, value):
+        if not isinstance(value, int):
+            print("page_count must be an integer\n", end="")
+        else:
+            self._page_count = value    
+
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
         
